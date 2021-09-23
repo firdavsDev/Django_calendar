@@ -1,0 +1,36 @@
+{% extends 'events/base.html' %}
+{% block content %}
+
+    <h1>Events</h1><br>
+
+    {% for item in event_list %}
+
+    <div class="card mb-5 shadow p-3 mb-5 bg-body rounded" >
+        <div class="card-header">
+            <strong>Hodisa nomi: {{ item.name }}</strong>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title"><strong>Manzili</strong>: {{ item.venue }}</h5>
+          <p class="card-text"> 
+        <ul>
+            <li><strong>Sana</strong> : {{ item.event_date }}</li>
+            <li><strong>Qisqacha malumot</strong> : {{ item.description }}</li>
+            <li>Qatnashuvchilar:</li>
+            {% for user in item.attendees.all %}
+            {{ user }} <br>
+            {% endfor %}
+        </ul>              
+          </p>
+        </div>
+        <div class="card-footer text-muted">
+          <a href="{% url 'update-event' item.id %}" class="btn btn-outline-success btn-sm">Yangilash</a>
+          <a href="{% url 'delete-event' item.id %}" class="btn btn-outline-danger btn-sm">O'chirish</a>
+        </div>
+        
+      </div>
+
+     {% endfor %}
+
+
+{% endblock %}

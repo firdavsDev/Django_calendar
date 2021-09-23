@@ -1,0 +1,24 @@
+{% extends 'events/base.html' %}
+
+{% block content %}
+
+        {% if searched and venue %}
+        <h1 style="color: green;">Siz qidirayotgan manzil: {{ searched }}</h1>  <br><br>
+
+    <table class="table table-striped table-hover table-bordered ">
+        {% for venues in venue %}
+        <tr>
+            <td> <a href="{% url 'show-venue' venues.id %}">{{ venues }}</a> </td>
+            <td align='right'>
+               <a href="{% url 'update-venue' venues.id %}" class="btn btn-outline-secondary btn-sm">Yangilash</a>
+               <a href="{% url 'delete-venue' venues.id %}" class="btn btn-outline-danger btn-sm">O'chirish</a>
+            </td>
+        </tr>
+        {% endfor %} 
+    </table>    
+        {% else %}
+            <h1 style="color: red;"  class="ml-5" >Manzil topilmadi....</h1>
+            <h6>Manzil nomini to'gri kiriting</h6>
+        {% endif %}
+
+{% endblock content %}

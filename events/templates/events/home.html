@@ -1,0 +1,30 @@
+{% extends 'events/base.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #i{
+            color:blue;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uy</title>
+</head>
+<body>
+    {% block content %}
+    <center>
+        <h1>Kalendar: {{month}} {{year}}</h1><br>
+        {{ calendar|safe }}
+
+<br><br><br><br>
+<strong style="color: red;">Bugungi kun:</strong>   {{now}} <br> <br>
+<i id="i">Boshqa yildagi oylarni kurish uchun:  127.0.0.1:8000//yil/oynomi</i> <br>
+<i>Oy nomi ingliz tilida bulishi kerak!!!</i>
+</center>
+{% endblock %}
+</body>
+</html>

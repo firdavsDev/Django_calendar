@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">Kalendar</a>
+      <button data-bs-toggle="Qidirish" data-bs-placement="top" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' '2021' 'July' %}">Iyul</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add-event' %}">Hodisalar qo'shish</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'list-events' %}">Hodisalar</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add-venue' %}">Manzil qo'shish</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'list-venue' %}">Manzilar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'venue-text' %}">Manzilarni text fayli</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'venue-cvs' %}">Manzilarni CSV fayli</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'venue-pdf' %}">Manzilarni PDF fayli</a>
+          </li>
+        </ul>
+        <form class="d-flex" method="POST" action="{% url 'Search' %}">
+          {% csrf_token %}
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search", name="searched">
+          <button class="btn btn-outline-success" type="submit">Qidirish</button>
+        </form>
+
+      </div>
+    </div>
+  </nav>

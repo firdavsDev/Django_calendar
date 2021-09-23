@@ -1,0 +1,21 @@
+{% extends 'events/base.html' %}
+
+{% block content %}
+
+        <h1>Manzilar ro'yxati</h1>
+        <br><br>
+    <table class="table table-striped table-hover table-bordered shadow p-3 mb-5 bg-body rounded ">
+        {% for venue in venue_list %}
+        <tr>
+            <td>
+                <a href="{% url 'show-venue' venue.id %}">{{ venue }}</a> - {{venue.address}} <br>
+            </td>
+            <td align='right'>
+                <a href="{% url 'update-venue' venue.id %} " class="btn btn-outline-secondary btn-sm">Yangilash</a>
+                <a href="{% url 'delete-venue' venue.id %}" class="btn btn-outline-danger btn-sm">O'chirish</a>
+             </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock content %}

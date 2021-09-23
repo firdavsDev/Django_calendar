@@ -1,0 +1,25 @@
+{% extends 'events/base.html' %}
+
+{% block content %}
+
+        <h1 style="color: green;">Hodisani bazaga qo'shish</h1>
+        <br>
+
+            {% if submitted %}
+            <h4>Sizning hodisangiz bazaga qo'shildi...</h4>
+               
+
+            {% else %}
+               
+                <form action="" method=POST>
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+                    
+                    <input type="submit" value="Submit" class="btn btn-secondary">
+
+                </form> 
+            {% endif %}
+
+
+{% endblock content %}
